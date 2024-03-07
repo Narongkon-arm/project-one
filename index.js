@@ -22,6 +22,8 @@ const storeUserController = require('./controllers/storeUserController')
 const loginUserController = require('./controllers/loginUserController')
 const logoutController = require('./controllers/logoutController')
 const homeController = require('./controllers/homeController')
+const videoController = require('./controllers/videoController')
+
 
 
 // middleware
@@ -46,6 +48,7 @@ app.set('view engine', 'ejs')
 //กำหนด rote 
 app.get('/', indexController)
 app.get('/home', authMiddleware, homeController)
+app.get('/video', authMiddleware, videoController)
 app.get('/login', redirectIfAuth, loginController)
 app.get('/register', redirectIfAuth, registerController)
 app.post('/user/register', redirectIfAuth, storeUserController)
